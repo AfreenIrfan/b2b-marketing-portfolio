@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Afreen Irfan — B2B Marketing Associate</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --bg2: #0f0f1a;
+    --surface: #13131f;
+    --border: rgba(255,255,255,0.07);
+    --accent: #4f6ef7;
+    --accent2: #7c3aed;
+    --green: #10b981;
+    --text: #e8e8f0;
+    --muted: #6b7280;
+    --subtle: #1e1e2e;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* GRID TEXTURE */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(79,110,247,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(79,110,247,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 48px;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--text);
+    letter-spacing: -0.5px;
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: #fff !important;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    transition: opacity 0.2s !important;
+  }
+
+  .nav-cta:hover { opacity: 0.85; color: #fff !important; }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 48px 80px;
+    overflow: hidden;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: -100px; left: -100px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(79,110,247,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-glow2 {
+    position: absolute;
+    bottom: -200px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(79,110,247,0.1);
+    border: 1px solid rgba(79,110,247,0.25);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 12px;
+    color: #818cf8;
+    font-weight: 500;
+    margin-bottom: 24px;
+    letter-spacing: 0.3px;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(40px, 4vw, 58px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+
+  .hero h1 .accent { color: var(--accent); }
+  .hero h1 .dim { color: var(--muted); }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 480px;
+    font-weight: 300;
+  }
+
+  .hero-sub strong { color: var(--text); font-weight: 500; }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    padding: 13px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary:hover { background: #3d5ce5; transform: translateY(-1px); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    padding: 13px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.03); }
+
+  /* HERO RIGHT — STATS CARD */
+  .hero-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .hero-card-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .stat-box {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-num span { color: var(--accent); }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    background: rgba(79,110,247,0.08);
+    border: 1px solid rgba(79,110,247,0.15);
+    color: #818cf8;
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 100px;
+    font-weight: 500;
+  }
+
+  .tag.green {
+    background: rgba(16,185,129,0.08);
+    border-color: rgba(16,185,129,0.2);
+    color: #34d399;
+  }
+
+  .availability-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  .avail-dot {
+    width: 8px; height: 8px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .avail-text { font-size: 13px; color: var(--muted); }
+  .avail-text strong { color: var(--text); }
+
+  /* SECTIONS */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 100px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: #fff;
+    margin-bottom: 16px;
+    line-height: 1.15;
+  }
+
+  .section-sub {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 540px;
+    line-height: 1.7;
+    margin-bottom: 56px;
+    font-weight: 300;
+  }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* WHAT I BRING — B2B POSITIONING */
+  .bring-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .bring-card {
+    background: var(--surface);
+    padding: 36px 32px;
+    transition: background 0.2s;
+  }
+
+  .bring-card:hover { background: var(--subtle); }
+
+  .bring-icon {
+    width: 40px; height: 40px;
+    background: rgba(79,110,247,0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .bring-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  .bring-card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* CAMPAIGN THINKING — THE MONEY SECTION */
+  .campaign-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+
+  .campaign-header {
+    background: var(--subtle);
+    padding: 20px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .campaign-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .campaign-badge {
+    background: rgba(79,110,247,0.15);
+    color: #818cf8;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .campaign-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .campaign-body {
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 24px;
+  }
+
+  .c-block label {
+    display: block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .c-block p {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  .c-block.full { grid-column: 1 / -1; }
+
+  .metrics-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  .metric-chip {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .metric-chip span {
+    color: var(--green);
+    font-weight: 600;
+  }
+
+  /* EXPERIENCE */
+  .exp-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+
+  .exp-timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 8px; bottom: 8px;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 24px;
+    padding-bottom: 48px;
+    position: relative;
+  }
+
+  .exp-dot {
+    width: 10px; height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-top: 6px;
+    position: relative;
+    z-index: 1;
+    margin-left: 15px;
+    box-shadow: 0 0 0 3px rgba(79,110,247,0.2);
+  }
+
+  .exp-dot.b2b { background: var(--green); box-shadow: 0 0 0 3px rgba(16,185,129,0.2); }
+
+  .exp-content {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    transition: border-color 0.2s;
+  }
+
+  .exp-content:hover { border-color: rgba(79,110,247,0.3); }
+
+  .exp-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .exp-company {
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .exp-company.b2b-co { color: var(--green); }
+
+  .exp-role {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .exp-date {
+    font-size: 12px;
+    color: var(--muted);
+    background: var(--bg2);
+    padding: 4px 12px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+  }
+
+  .exp-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .exp-list li {
+    font-size: 14px;
+    color: var(--muted);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .exp-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 12px;
+  }
+
+  .b2b-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(16,185,129,0.08);
+    border: 1px solid rgba(16,185,129,0.2);
+    color: #34d399;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+
+  /* WORK SAMPLES */
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .work-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.25s;
+    text-decoration: none;
+    display: block;
+  }
+
+  .work-card:hover {
+    border-color: rgba(79,110,247,0.3);
+    transform: translateY(-3px);
+  }
+
+  .work-thumb {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .work-thumb.blue { background: linear-gradient(135deg, #1e1e3f, #0a0a1f); }
+  .work-thumb.green { background: linear-gradient(135deg, #0a1f15, #071410); }
+  .work-thumb.purple { background: linear-gradient(135deg, #1a0a2e, #0d0519); }
+  .work-thumb.amber { background: linear-gradient(135deg, #1f160a, #120d05); }
+  .work-thumb.teal { background: linear-gradient(135deg, #071a1f, #03100f); }
+  .work-thumb.red { background: linear-gradient(135deg, #1f0a0a, #12050a); }
+
+  .work-info { padding: 20px; }
+
+  .work-brand {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .work-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .work-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  .work-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .work-tag {
+    font-size: 11px;
+    color: var(--muted);
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  /* ANALYTICS SECTION */
+  .analytics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .analytics-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+  }
+
+  .analytics-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .metric-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .metric-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+  }
+
+  .metric-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .metric-dot.green { background: var(--green); }
+  .metric-dot.purple { background: #7c3aed; }
+
+  .metric-name { color: var(--text); font-weight: 400; flex: 1; }
+  .metric-why { color: var(--muted); font-size: 12px; font-weight: 300; }
+
+  .tools-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tool-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: var(--bg2);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+
+  .tool-name { font-size: 13px; color: var(--text); font-weight: 500; }
+  .tool-use { font-size: 12px; color: var(--muted); font-weight: 300; }
+
+  /* CERTIFICATIONS */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .cert-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: border-color 0.2s;
+  }
+
+  .cert-card:hover { border-color: rgba(79,110,247,0.3); }
+
+  .cert-logo {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .cert-logo.hubspot { background: rgba(255,122,0,0.1); }
+  .cert-logo.google { background: rgba(79,110,247,0.1); }
+
+  .cert-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .cert-issuer {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto 80px;
+  }
+
+  .contact-section::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(79,110,247,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .contact-section h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+  }
+
+  .contact-section p {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 36px;
+    font-weight: 300;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .contact-link:hover {
+    border-color: rgba(79,110,247,0.4);
+    background: rgba(79,110,247,0.06);
+  }
+
+  .contact-link.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  .contact-link.primary:hover { background: #3d5ce5; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+  }
+
+  footer p { font-size: 13px; color: var(--muted); }
+
+  /* ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 24px 60px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    section { padding: 60px 24px; }
+    .bring-grid { grid-template-columns: 1fr; }
+    .campaign-body { grid-template-columns: 1fr 1fr; }
+    .work-grid { grid-template-columns: 1fr; }
+    .analytics-grid { grid-template-columns: 1fr; }
+    .cert-grid { grid-template-columns: 1fr; }
+    .contact-section { padding: 40px 24px; }
+    footer { padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Afreen<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#campaign">Campaign Thinking</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">Open to full-time roles — Kochi, Kerala</div>
+      <h1>Marketing that <span class="accent">drives</span> business <span class="dim">outcomes.</span></h1>
+      <p class="hero-sub">
+        I'm Afreen — a Digital Marketing Associate with hands-on experience in <strong>content strategy, campaign execution, and B2B marketing</strong>. I connect creative execution with analytical thinking to support real marketing results.
+      </p>
+      <div class="hero-actions">
+        <a href="mailto:afreenirfan31@gmail.com" class="btn-primary">✉ Let's Talk</a>
+        <a href="https://www.linkedin.com/in/afreen-irfan-048a4a27a/" target="_blank" class="btn-ghost">LinkedIn →</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-card-label">At a Glance</div>
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-num">3<span>+</span></div>
+          <div class="stat-label">Brands managed</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">1<span>yr</span></div>
+          <div class="stat-label">B2B field exposure</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">5<span>+</span></div>
+          <div class="stat-label">Certifications</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">4<span>+</span></div>
+          <div class="stat-label">AI tools in workflow</div>
+        </div>
+      </div>
+      <div class="skill-tags">
+        <span class="tag">Campaign Strategy</span>
+        <span class="tag">Content Marketing</span>
+        <span class="tag green">B2B Background</span>
+        <span class="tag">Analytics Mindset</span>
+        <span class="tag green">AI-powered workflow</span>
+      </div>
+      <div class="availability-row">
+        <div class="avail-dot"></div>
+        <div class="avail-text"><strong>Available now</strong> · Kerala, India · Open to hybrid/remote</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- WHAT I BRING -->
+<section id="about">
+  <div class="section-label">Positioning</div>
+  <h2 class="section-title">What I bring to a<br>B2B marketing team</h2>
+  <p class="section-sub">Not just execution — perspective, ownership, and a genuine interest in how marketing creates business value.</p>
+
+  <div class="bring-grid fade-up">
+    <div class="bring-card">
+      <div class="bring-icon">📊</div>
+      <h3>Campaign Thinking</h3>
+      <p>I approach campaigns with objectives first — audience, platform, message, and metrics — not just creative output. Every piece of content has a business reason behind it.</p>
+    </div>
+    <div class="bring-card">
+      <div class="bring-icon">🤝</div>
+      <h3>B2B Market Understanding</h3>
+      <p>Over a year in institutional B2B sales at Birla Opus gave me direct exposure to how corporate buying decisions are made — which now shapes how I think about B2B content and targeting.</p>
+    </div>
+    <div class="bring-card">
+      <div class="bring-icon">⚡</div>
+      <h3>AI-Powered Execution</h3>
+      <p>I use Claude, ChatGPT, Gemini, ElevenLabs, and CapCut not as novelties but to multiply output quality and speed — video scripts, ad copy, visual ideation — all faster and smarter.</p>
+    </div>
+    <div class="bring-card">
+      <div class="bring-icon">📈</div>
+      <h3>Analytical Foundation</h3>
+      <p>PGDM dissertation using SPSS and SmartPLS to analyze e-commerce consumer behavior. I understand how to read data, identify patterns, and translate findings into actionable marketing insight.</p>
+    </div>
+    <div class="bring-card">
+      <div class="bring-icon">🎯</div>
+      <h3>Cross-functional Coordination</h3>
+      <p>Managed documentation, client expectations, and cross-team alignment in a large B2B environment. I know how to operate in structured corporate settings — not just agency environments.</p>
+    </div>
+    <div class="bring-card">
+      <div class="bring-icon">🔄</div>
+      <h3>Ownership Mindset</h3>
+      <p>Built Yokomet's Instagram presence from zero — strategy, calendar, creatives, copy, all of it. I don't wait to be told what to do; I identify what's needed and ship it.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CAMPAIGN THINKING — THE KEY B2B SECTION -->
+<section id="campaign">
+  <div class="section-label">Campaign Thinking</div>
+  <h2 class="section-title">How I approach a campaign</h2>
+  <p class="section-sub">Sample campaign briefs showing how I think — from business objective to execution to measurement.</p>
+
+  <!-- Campaign 1 -->
+  <div class="campaign-box fade-up">
+    <div class="campaign-header">
+      <div class="campaign-title-row">
+        <span class="campaign-badge">B2B · SaaS</span>
+        <span class="campaign-name">LinkedIn Lead Generation — Tech Consulting Firm</span>
+      </div>
+      <span class="tag">Sample Brief</span>
+    </div>
+    <div class="campaign-body">
+      <div class="c-block">
+        <label>Objective</label>
+        <p>Generate 40–60 qualified inbound leads/month from mid-market companies via LinkedIn organic + paid</p>
+      </div>
+      <div class="c-block">
+        <label>Target Audience</label>
+        <p>Marketing heads, ops managers at SMEs (50–500 employees) in South India & GCC</p>
+      </div>
+      <div class="c-block">
+        <label>Platform</label>
+        <p>LinkedIn (organic posts + InMail + sponsored content)</p>
+      </div>
+      <div class="c-block">
+        <label>Timeline</label>
+        <p>30-day sprint, 3-phase structure</p>
+      </div>
+      <div class="c-block full">
+        <label>Strategy</label>
+        <p>Phase 1 (Week 1–2): Awareness — 3x thought leadership posts/week on industry pain points. Phase 2 (Week 3): Consideration — Case study carousel + lead magnet (free audit checklist). Phase 3 (Week 4): Conversion — CTA-driven post + InMail sequence to warm engagers → demo booking.</p>
+      </div>
+      <div class="c-block full">
+        <label>Metrics I'd Track</label>
+        <div class="metrics-row">
+          <div class="metric-chip">Reach <span>→ awareness</span></div>
+          <div class="metric-chip">Engagement Rate <span>→ content resonance</span></div>
+          <div class="metric-chip">Profile Visits <span>→ intent signal</span></div>
+          <div class="metric-chip">Lead Magnet Downloads <span>→ pipeline entry</span></div>
+          <div class="metric-chip">Demo Bookings <span>→ conversion</span></div>
+          <div class="metric-chip">CPL <span>→ efficiency</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Campaign 2 -->
+  <div class="campaign-box fade-up">
+    <div class="campaign-header">
+      <div class="campaign-title-row">
+        <span class="campaign-badge" style="background:rgba(16,185,129,0.15);color:#34d399;">B2B · Brand Awareness</span>
+        <span class="campaign-name">Instagram Brand Launch — Creative Agency (Yokomet)</span>
+      </div>
+      <span class="tag green">Live Project</span>
+    </div>
+    <div class="campaign-body">
+      <div class="c-block">
+        <label>Objective</label>
+        <p>Build brand awareness and establish Yokomet as a credible creative agency for Kerala-based businesses</p>
+      </div>
+      <div class="c-block">
+        <label>Target Audience</label>
+        <p>SME owners, startup founders, and marketing managers in Kerala seeking creative agency services</p>
+      </div>
+      <div class="c-block">
+        <label>Platform</label>
+        <p>Instagram (Feed + Reels + Stories)</p>
+      </div>
+      <div class="c-block">
+        <label>My Role</label>
+        <p>End-to-end — strategy, calendar, copy, creatives, and AI video content production</p>
+      </div>
+      <div class="c-block full">
+        <label>What I Built</label>
+        <p>Content calendar with 3 post types: showcase (portfolio), value (tips/insights), and social proof (client results). Used ElevenLabs for AI voiceover videos, CapCut for short-form editing, and Canva for static creatives. Maintained consistent brand voice across all formats.</p>
+      </div>
+      <div class="c-block full">
+        <label>Metrics Tracked</label>
+        <div class="metrics-row">
+          <div class="metric-chip">Follower Growth <span>→ reach expansion</span></div>
+          <div class="metric-chip">Saves & Shares <span>→ content value</span></div>
+          <div class="metric-chip">Story Views <span>→ community depth</span></div>
+          <div class="metric-chip">Profile Visits <span>→ discovery intent</span></div>
+          <div class="metric-chip">Reel Reach <span>→ algorithm performance</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Experience</div>
+  <h2 class="section-title">Where I've worked<br>& what I learned</h2>
+  <p class="section-sub">A mix of B2B field experience and hands-on digital marketing — both sides make me a more complete marketer.</p>
+
+  <div class="exp-timeline">
+
+    <div class="exp-item fade-up">
+      <div class="exp-dot"></div>
+      <div class="exp-content">
+        <div class="exp-meta">
+          <div>
+            <div class="exp-company">Yokomet Creative Agency</div>
+            <div class="exp-role">Digital Marketing Assistant</div>
+          </div>
+          <div class="exp-date">Dec 2024 – Present</div>
+        </div>
+        <ul class="exp-list">
+          <li>Built Instagram content strategy from zero — brand voice, content calendar, captions, and visual creatives</li>
+          <li>Produced AI-powered video content using ElevenLabs + CapCut to improve engagement across healthcare, travel, and air quality verticals</li>
+          <li>Designed ad creatives across multiple client sectors supporting campaign objectives</li>
+          <li>Used AI tools (Claude, ChatGPT, Gemini) to accelerate content ideation and workflow efficiency</li>
+          <li>Managed brand assets across Canva, Envato, and Freepik to maintain visual consistency</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item fade-up">
+      <div class="exp-dot b2b"></div>
+      <div class="exp-content">
+        <div class="exp-meta">
+          <div>
+            <div class="exp-company b2b-co">Birla Opus Prime</div>
+            <div class="exp-role">Sales Management Trainee — Institutional</div>
+          </div>
+          <div class="exp-date">Jun 2024 – Dec 2024</div>
+        </div>
+        <div class="b2b-flag">🏗 B2B Experience</div>
+        <ul class="exp-list">
+          <li>Managed B2B and institutional client interactions across Kerala, including government accounts</li>
+          <li>Contributed to large-scale institutional opportunity pipeline including <strong>Kerala Metro Phase 2</strong></li>
+          <li>Coordinated cross-functional alignment between sales, logistics, and client expectations</li>
+          <li>Built direct understanding of B2B buying cycles, stakeholder management, and corporate decision-making — now applied to how I approach B2B marketing content and strategy</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item fade-up">
+      <div class="exp-dot b2b"></div>
+      <div class="exp-content">
+        <div class="exp-meta">
+          <div>
+            <div class="exp-company b2b-co">Birla Opus</div>
+            <div class="exp-role">Institutional Sales Intern</div>
+          </div>
+          <div class="exp-date">Apr 2024 – Jun 2024</div>
+        </div>
+        <ul class="exp-list">
+          <li>Conducted field research on dealer and institutional client requirements</li>
+          <li>Supported documentation and approval workflows for B2B project pipelines</li>
+          <li>Collected and analyzed customer insights to support sales team decision-making</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item fade-up">
+      <div class="exp-dot"></div>
+      <div class="exp-content">
+        <div class="exp-meta">
+          <div>
+            <div class="exp-company">Arvind Fashions Ltd — USPA</div>
+            <div class="exp-role">Marketing Intern — Consumer Research</div>
+          </div>
+          <div class="exp-date">Apr 2024 – Jun 2024</div>
+        </div>
+        <ul class="exp-list">
+          <li>Conducted primary research on customer preference and trial room behavior at US Polo Assn. outlets</li>
+          <li>Gathered consumer insights that informed in-store experience improvements</li>
+          <li>Supported store-level execution and customer engagement initiatives</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- WORK SAMPLES -->
+<section id="work">
+  <div class="section-label">Work Samples</div>
+  <h2 class="section-title">Campaigns & creatives<br>I've worked on</h2>
+  <p class="section-sub">A selection of real client work — each built with a specific goal, audience, and brand context in mind.</p>
+
+  <div class="work-grid fade-up">
+
+    <a href="https://drive.google.com/drive/folders/1Lze1-HjlaLcnOM8E0vVWsw_cm32WpH75" target="_blank" class="work-card">
+      <div class="work-thumb blue">🌬️</div>
+      <div class="work-info">
+        <div class="work-brand">IHMS · Indoor Air Quality · Kuwait</div>
+        <div class="work-name">Coolpex — Ad Creative Series</div>
+        <div class="work-desc">Pain-point led ad series — dry air, poor sleep, dusty spaces. Bold copy + mascot character design for B2C awareness campaign.</div>
+        <div class="work-tags">
+          <span class="work-tag">4 Creatives</span>
+          <span class="work-tag">Mascot Design</span>
+          <span class="work-tag">Ad Copy</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/drive/folders/1Lze1-HjlaLcnOM8E0vVWsw_cm32WpH75" target="_blank" class="work-card">
+      <div class="work-thumb green">🌿</div>
+      <div class="work-info">
+        <div class="work-brand">Yokomet · Creative Agency · Kerala</div>
+        <div class="work-name">Instagram Strategy — Full Build</div>
+        <div class="work-desc">End-to-end Instagram launch: brand voice, 3-month content calendar, captions, creatives, and AI video production. Ongoing.</div>
+        <div class="work-tags">
+          <span class="work-tag">Content Strategy</span>
+          <span class="work-tag">AI Video</span>
+          <span class="work-tag">Ongoing</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/drive/folders/1Lze1-HjlaLcnOM8E0vVWsw_cm32WpH75" target="_blank" class="work-card">
+      <div class="work-thumb purple">✨</div>
+      <div class="work-info">
+        <div class="work-brand">Anti Ageing Lab · Skincare · Kerala</div>
+        <div class="work-name">Before/After Ad Creatives</div>
+        <div class="work-desc">High-impact direct response ads with luxury editorial aesthetic. CTA-focused design driving consultation bookings.</div>
+        <div class="work-tags">
+          <span class="work-tag">2 Creatives</span>
+          <span class="work-tag">Direct Response</span>
+          <span class="work-tag">Conversion CTA</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/drive/folders/1Lze1-HjlaLcnOM8E0vVWsw_cm32WpH75" target="_blank" class="work-card">
+      <div class="work-thumb amber">🌅</div>
+      <div class="work-info">
+        <div class="work-brand">Spiceland · Travel · Kerala</div>
+        <div class="work-name">Kerala Romantic Getaway Campaign</div>
+        <div class="work-desc">Double-exposure visual campaign positioning Kerala as the ultimate destination — houseboats, backwaters, golden light.</div>
+        <div class="work-tags">
+          <span class="work-tag">Visual Campaign</span>
+          <span class="work-tag">Brand Storytelling</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/drive/folders/1Lze1-HjlaLcnOM8E0vVWsw_cm32WpH75" target="_blank" class="work-card">
+      <div class="work-thumb teal">🔬</div>
+      <div class="work-info">
+        <div class="work-brand">Academic · Research · PGDM</div>
+        <div class="work-name">Impulse Buying Dissertation</div>
+        <div class="work-desc">SPSS + SmartPLS study on how e-commerce UX drives impulse purchases. Analyzed interactivity, visual engagement, navigation, and loyalty across Kerala consumers.</div>
+        <div class="work-tags">
+          <span class="work-tag">SPSS</span>
+          <span class="work-tag">SmartPLS</span>
+          <span class="work-tag">Consumer Research</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/drive/folders/1Lze1-HjlaLcnOM8E0vVWsw_cm32WpH75" target="_blank" class="work-card">
+      <div class="work-thumb red">🌱</div>
+      <div class="work-info">
+        <div class="work-brand">Concept · E-Commerce · Sustainable Fashion</div>
+        <div class="work-name">EcoFashion Hub — Digital Retail Concept</div>
+        <div class="work-desc">Conceptualized a sustainable fashion digital retail platform combining UX thinking, ethical brand positioning, and digital marketing strategy.</div>
+        <div class="work-tags">
+          <span class="work-tag">Brand Strategy</span>
+          <span class="work-tag">E-Commerce</span>
+          <span class="work-tag">Concept</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <div style="text-align:center; margin-top: 32px;">
+    <a href="https://drive.google.com/drive/folders/1Lze1-HjlaLcnOM8E0vVWsw_cm32WpH75" target="_blank" class="btn-ghost">View all creatives on Google Drive →</a>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ANALYTICS MINDSET -->
+<section>
+  <div class="section-label">Analytics Thinking</div>
+  <h2 class="section-title">What I track &<br>why it matters</h2>
+  <p class="section-sub">Metrics aren't just numbers — they're signals. Here's how I think about campaign measurement.</p>
+
+  <div class="analytics-grid fade-up">
+    <div class="analytics-card">
+      <h3>Metrics I work with</h3>
+      <div class="metric-list">
+        <div class="metric-item">
+          <div class="metric-dot green"></div>
+          <div>
+            <div class="metric-name">Engagement Rate</div>
+            <div class="metric-why">Content resonance — are people responding?</div>
+          </div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-dot"></div>
+          <div>
+            <div class="metric-name">Reach & Impressions</div>
+            <div class="metric-why">Awareness — how many new people did we touch?</div>
+          </div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-dot purple"></div>
+          <div>
+            <div class="metric-name">Saves & Shares</div>
+            <div class="metric-why">Content value — did it earn a second look?</div>
+          </div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-dot green"></div>
+          <div>
+            <div class="metric-name">CTR (Click-through Rate)</div>
+            <div class="metric-why">Conversion intent — are they moving to next step?</div>
+          </div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-dot"></div>
+          <div>
+            <div class="metric-name">Profile Visits</div>
+            <div class="metric-why">Discovery signal — is content driving interest?</div>
+          </div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-dot purple"></div>
+          <div>
+            <div class="metric-name">Follower Growth Rate</div>
+            <div class="metric-why">Momentum — is the audience compounding?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="analytics-card">
+      <h3>Tools in my workflow</h3>
+      <div class="tools-row">
+        <div class="tool-item">
+          <span class="tool-name">Meta Business Suite</span>
+          <span class="tool-use">Campaign tracking & audience insights</span>
+        </div>
+        <div class="tool-item">
+          <span class="tool-name">Google Analytics (basic)</span>
+          <span class="tool-use">Traffic source & behavior analysis</span>
+        </div>
+        <div class="tool-item">
+          <span class="tool-name">Claude / ChatGPT / Gemini</span>
+          <span class="tool-use">Content ideation, copy, strategy assist</span>
+        </div>
+        <div class="tool-item">
+          <span class="tool-name">Canva</span>
+          <span class="tool-use">Ad creatives & brand visuals</span>
+        </div>
+        <div class="tool-item">
+          <span class="tool-name">ElevenLabs + CapCut</span>
+          <span class="tool-use">AI video production & editing</span>
+        </div>
+        <div class="tool-item">
+          <span class="tool-name">SPSS + SmartPLS</span>
+          <span class="tool-use">Statistical research & data analysis</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CERTIFICATIONS -->
+<section>
+  <div class="section-label">Credentials</div>
+  <h2 class="section-title">Certifications</h2>
+  <p class="section-sub">Verified credentials across digital marketing, ads, and growth — from HubSpot and Google.</p>
+
+  <div class="cert-grid fade-up">
+    <div class="cert-card">
+      <div class="cert-logo hubspot">🟠</div>
+      <div>
+        <div class="cert-name">Social Media Marketing</div>
+        <div class="cert-issuer">HubSpot Academy</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-logo hubspot">🟠</div>
+      <div>
+        <div class="cert-name">AI-Powered Performance Ads</div>
+        <div class="cert-issuer">HubSpot Academy</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-logo google">🔵</div>
+      <div>
+        <div class="cert-name">Google Ads for Beginners</div>
+        <div class="cert-issuer">Google</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-logo google">🔵</div>
+      <div>
+        <div class="cert-name">Fundamentals of Digital Marketing</div>
+        <div class="cert-issuer">Google Digital Garage</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CONTACT -->
+<section id="contact" style="padding-bottom: 40px;">
+  <div class="contact-section">
+    <h2>Let's build something that works.</h2>
+    <p>Open to full-time marketing roles — B2B, SaaS, agencies, or growth-stage companies in Kerala or remote.</p>
+    <div class="contact-links">
+      <a href="mailto:afreenirfan31@gmail.com" class="contact-link primary">✉ afreenirfan31@gmail.com</a>
+      <a href="tel:+917012888164" class="contact-link">📞 +91 7012888164</a>
+      <a href="https://www.linkedin.com/in/afreen-irfan-048a4a27a/" target="_blank" class="contact-link">LinkedIn ↗</a>
+      <a href="https://drive.google.com/drive/folders/1Lze1-HjlaLcnOM8E0vVWsw_cm32WpH75" target="_blank" class="contact-link">Work Samples ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Afreen Irfan · Kerala, India</p>
+  <p style="font-size:12px;">Built for B2B · Marketing Associate · Open to opportunities</p>
+</footer>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
